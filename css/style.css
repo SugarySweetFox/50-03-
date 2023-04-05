@@ -23,8 +23,34 @@ body, html {
     padding: 0;
 }
 
+section h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+h1  {
+    font-size: 2.75rem;
+}
+
+p {
+    font-size: 16px;
+}
+
 h1,h2,h3,h4 {
     color: var(--main-color)
+}
+
+section.work-detailed h3, section.work-detailed h4 {
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+section.work-detailed h3 {
+    font-size: 1.875rem;
+}
+
+section.work-detailed h4 {
+    font-size: 1.5rem;
 }
 
 .content button {
@@ -63,7 +89,11 @@ header ul {
 
 header ul li a {
     text-decoration: none;
-    color: black;
+    color: var(--main-color);
+}
+
+header ul li a.active {
+    color: var(--primary-color);
 }
 
 .content {
@@ -97,10 +127,13 @@ section {
     padding: 32px 0;
 }
 
-section h3 {
-    font-size: 1.4rem;
-    font-weight: 400;
+
+
+.section-header h2{
+    font-size: 2.125rem;
 }
+
+
 
 section a.all {
     color: var(--secondary-color);
@@ -198,6 +231,43 @@ section.recent .recent-container {
     color: var(--grey-color);
 }
 
+section.works .works-header .description {
+    display: flex;
+}
+
+section.works .works-header .description {
+    display: flex;
+    justify-content: space-between;
+    width: 290px;
+    align-items: center;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+section.works .works-header .description .date {
+    width: 62px;
+    height: 26px;
+    background-color: var(--primary-color);
+    border-radius: 16px;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+section.works .works-header .description {
+    display: flex;
+}
+
+section.works .works-header .description .tag {
+    font-size: 1.25rem;
+    color: var(--grey-color);
+}
+
+
+
 footer {
     height: 260px;
     display: flex;
@@ -234,6 +304,19 @@ footer nav ul {
     background-image: url('../img/tg.svg');
 }
 
+
+
+.work-detailed img {
+    margin: 30px 0;
+    width: 100%;
+}
+
+.work-detailed img.first-img {
+    margin: 50px 0;
+}
+
+
+
 @media screen and (max-width: 900px) {
     .container {
         max-width: 90%;
@@ -262,6 +345,8 @@ footer nav ul {
     .content .content-left button {
         margin-top: 36px;
     }
+
+   
 
     section.works .works-header h3, section.recent .recent-header h3  {
         align-items: center;
@@ -312,6 +397,13 @@ button.burger {
     justify-content: space-between;
     align-items: center;
     display: none;
+
+    transform: translateX(0px);
+    transition: .3s;
+}
+
+button.burger.open {
+    transform: translateX(-20px);
 }
 
 button.burger .line {
@@ -348,12 +440,16 @@ button.burger.open .line-3 {
         padding: 20px 10px;
         width: 100px;
 
-        right: -100%;
         transition: .3s;
+        transform: translateY(100px);
+        opacity: 0;
+        pointer-events: none;
     }
 
     header ul.menu.open {
-        right: 0;
+        transform: translateY(0px);
+        opacity: 1;
+        pointer-events: all;
     }
 
     button.burger {
